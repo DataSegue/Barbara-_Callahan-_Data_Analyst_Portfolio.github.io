@@ -117,11 +117,13 @@
       <h2>🧩 SQL Code Samples</h2>
       <pre>
 -- Extract year, make, model
-SELECT
-  split_part(raw_string, ' ', 1) AS year,
-  split_part(raw_string, ' ', 2) AS make,
-  split_part(raw_string, ' ', 3) AS model
-FROM car_sales_staging;
+SELECT 
+    c.make, c.model, COUNT(*) AS total_sales
+FROM car c
+JOIN price p ON c.car_id = p.car_id
+GROUP BY c.make, c.model
+ORDER BY total_sales ASC
+LIMIT 5;
       </pre>
       <p><a href=" car_sale_trend_analysis.sql" download>📥 Download Full SQL Code</a></p>
     </section>
