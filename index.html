@@ -116,12 +116,16 @@
     <section id="sql">
       <h2>🧩 SQL Code Samples</h2>
       <pre>
--- Extract year, make, model
-SELECT
-  split_part(raw_string, ' ', 1) AS year,
-  split_part(raw_string, ' ', 2) AS make,
-  split_part(raw_string, ' ', 3) AS model
-FROM car_sales_staging;
+--  Which car brands retain their value the best over time?
+SELECT 
+    c.make,
+    EXTRACT(YEAR FROM CURRENT_DATE) - c.year AS car_age,
+    ROUND(AVG(p.price_usd),2) AS avg_price
+FROM car c
+JOIN condition cond ON c.car_id = cond.car_id
+JOIN price p ON c.car_id = p.car_id
+GROUP BY c.make, car_age
+ORDER BY c.make, car_age;
       </pre>
       <p><a href="car_sale_trend_analysis.sql" download>📥 Download Full SQL Code</a></p>
     </section>
