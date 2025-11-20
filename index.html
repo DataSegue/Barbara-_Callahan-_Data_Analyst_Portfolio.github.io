@@ -78,7 +78,7 @@
     <a href="#projects">Projects</a>
     <a href="#sql">SQL Samples</a>
     <a href="#videos">Videos</a>
-    <a href="your_- [ ] Copy of Resume Template (3).pdf" download>Download Résumé</a>
+    <a href="your_INSERT_YOUR_RESUME_FILENAME.pdf" download>Download Résumé</a>
   </nav>
 
   <header id="home">
@@ -96,8 +96,8 @@
         <img src="car_sales_dashboard.png" alt="Car Sales Dashboard">
 
         <h3>📊 Interactive Tableau Dashboard</h3>
-        <iframe src="YOUR_TABLEAU_PUBLIC_LINK_HERE" width="100%" height="600"></iframe>
-        <p><a href="YOUR_TABLEAU_PUBLIC_LINK_HERE" target="_blank">View on Tableau Public</a></p>
+        <iframe src="https://public.tableau.com/views/Book1_17556610621190_17563539515870/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" width="100%" height="600"></iframe>
+        <p><a href="https://public.tableau.com/views/Book1_17556610621190_17563539515870/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">View on Tableau Public</a></p>
 
         <h3>🎥 Full Project Tutorial Video</h3>
         <p>Watch my complete end‑to‑end tutorial breaking down data cleaning, forecasting, SQL development.</p>
@@ -117,15 +117,13 @@
       <h2>🧩 SQL Code Samples</h2>
       <pre>
 -- Extract year, make, model
-SELECT 
-    c.make, c.model, COUNT(*) AS total_sales
-FROM car c
-JOIN price p ON c.car_id = p.car_id
-GROUP BY c.make, c.model
-ORDER BY total_sales ASC
-LIMIT 5;
+SELECT
+  split_part(raw_string, ' ', 1) AS year,
+  split_part(raw_string, ' ', 2) AS make,
+  split_part(raw_string, ' ', 3) AS model
+FROM car_sales_staging;
       </pre>
-      <p><a href=" car_sale_trend_analysis.sql" download>📥 Download Full SQL Code</a></p>
+      <p><a href="FULL_SQL_CODE_DOWNLOAD.sql" download>📥 Download Full SQL Code</a></p>
     </section>
 
     <section id="videos">
@@ -153,10 +151,10 @@ LIMIT 5;
     <h2 class="text-3xl font-bold mb-4 text-center">Interactive Tableau Dashboard</h2>
     <p class="text-center mb-6">Explore the dashboard directly below or open it on Tableau Public.</p>
     <div class="w-full h-[700px]">
-      <iframe src="    - [ ] "https://public.tableau.com/views/Book1_17556610621190_17563539515870/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" width="100%" height="700" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://public.tableau.com/views/Book1_17556610621190_17563539515870/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" width="100%" height="700" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="text-center mt-4">
-      <a href="    - [ ] "https://public.tableau.com/views/Book1_17556610621190_17563539515870/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="text-blue-700 underline text-lg">Open Full Dashboard on Tableau Public</a>
+      <a href="https://public.tableau.com/views/Book1_17556610621190_17563539515870/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="text-blue-700 underline text-lg">Open Full Dashboard on Tableau Public</a>
     </div>
   </section>
 
@@ -165,7 +163,7 @@ LIMIT 5;
     <h2 class="text-3xl font-bold mb-4 text-center">Full Project Walkthrough</h2>
     <p class="text-center mb-6">Watch my complete end‑to‑end tutorial breaking down data cleaning, forecasting, SQL development, and dashboard creation.</p>
     <div class="w-full flex justify-center">
-      <iframe width="100%" height="500" src="https://youtu.be/GQ-F31nBV7w?si=1hMN4aNexxL9Cdaw" title="Project Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="100%" height="500" src="https://youtu.be/GQ-F31nBV7w" title="Project Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </section>
 </body>
